@@ -1,0 +1,10 @@
+---
+- name: Install Nodejs Repository
+  shell: bash -lc "curl -sL https://rpm.nodesource.com/setup_{{nodever}}.x | bash -"
+
+- name: Install Nodejs
+  yum:
+    name: "{{item}}"
+    state: latest
+  with_items:
+    - nodejs
